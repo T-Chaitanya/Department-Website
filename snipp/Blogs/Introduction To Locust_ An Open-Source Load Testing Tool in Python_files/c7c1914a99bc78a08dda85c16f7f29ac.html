@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://medium.com/media/c7c1914a99bc78a08dda85c16f7f29ac -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>locust-basic.py – Medium</title><meta name="description" content="You can&#39;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./3dd4f8480fbf606d26dcfc80387e7571.js.download" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-123720f37c57ce9a8f29de081c38ed61.css"><div id="gist100357839" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-locust-basic-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-locust-basic-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-locust-basic-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> locust <span class="pl-k">import</span> HttpLocust, TaskSet, task, between</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-locust-basic-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-locust-basic-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">class</span> <span class="pl-en">TestBehaviour</span>(<span class="pl-e">TaskSet</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-locust-basic-py-LC4" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">on_start</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-locust-basic-py-LC5" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">"""</span> on_start is called when a Locust start before any task is scheduled <span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-locust-basic-py-LC6" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">pass</span></td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-locust-basic-py-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-locust-basic-py-LC8" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">on_stop</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-locust-basic-py-LC9" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">"""</span> on_stop is called when the TaskSet is stopping <span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-locust-basic-py-LC10" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">pass</span></td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-locust-basic-py-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-locust-basic-py-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">@task</span>(<span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-locust-basic-py-LC13" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">hello_world</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-locust-basic-py-LC14" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.client.get(<span class="pl-s"><span class="pl-pds">"</span>http://localhost:5000<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-locust-basic-py-LC15" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-locust-basic-py-LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-k">class</span> <span class="pl-en">WebsiteTest</span>(<span class="pl-e">HttpLocust</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-locust-basic-py-LC17" class="blob-code blob-code-inner js-file-line">    task_set <span class="pl-k">=</span> TestBehaviour</td>
+      </tr>
+      <tr>
+        <td id="file-locust-basic-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-locust-basic-py-LC18" class="blob-code blob-code-inner js-file-line">    wait_time <span class="pl-k">=</span> between(<span class="pl-c1">0.5</span>, <span class="pl-c1">3.0</span>)</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/wfng92/3dd4f8480fbf606d26dcfc80387e7571/raw/f8f4cd655fa8ff6737a5cb6a2c6e8914553e4dff/locust-basic.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/wfng92/3dd4f8480fbf606d26dcfc80387e7571#file-locust-basic-py">locust-basic.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script></body></html>

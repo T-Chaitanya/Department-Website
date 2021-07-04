@@ -1,0 +1,40 @@
+jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" error
+	$('#loadmorebtn').click(function(){
+ 
+		var button = $(this),
+		    data = {
+			'action': 'loadmore',
+			'query': hts_loadmore_params.posts, // that's how we get params from wp_localize_script() function
+			'page' : hts_loadmore_params.current_page
+		};
+ 
+		$.ajax({ // you can also use $.post here
+			url : hts_loadmore_params.ajaxurl, // AJAX handler
+			data : data,
+			type : 'POST',
+			beforeSend : function ( xhr ) {
+				 $("#loadmorebtn").attr('disabled','disabled');
+				$("#showspinner").show();
+                $("#loadmorelable").text('Loading...');
+			},
+			success : function( data ){
+
+				if(data){
+					$('#loadmorebtn').removeAttr('disabled');
+					$("#showspinner").hide();
+                    $("#loadmorelable").text('Load More');
+					$("#loadmorebtn").before(data); // insert new posts
+					 $(".hide_ajx_post").each(function(){
+                        $(this).slideDown('slow').remove('hide_ajx_post');
+                   });
+					hts_loadmore_params.current_page++;
+ 
+					if ( hts_loadmore_params.current_page == hts_loadmore_params.max_page ) 
+						$('#loadmorebtn').remove();
+				} else {
+					$('#loadmorebtn').remove();
+				}
+			}
+		});
+	});
+});

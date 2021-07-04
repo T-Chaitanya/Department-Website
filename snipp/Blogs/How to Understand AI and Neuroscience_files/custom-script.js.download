@@ -1,0 +1,213 @@
+document.addEventListener("DOMContentLoaded", function() {
+  let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+  let active = false;
+
+  const lazyLoad = function() {
+    if (active === false) {
+      active = true;
+
+      setTimeout(function() {
+        lazyImages.forEach(function(lazyImage) {
+          if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.srcset = lazyImage.dataset.srcset;
+            lazyImage.classList.remove("lazy");
+
+            lazyImages = lazyImages.filter(function(image) {
+              return image !== lazyImage;
+            });
+
+            if (lazyImages.length === 0) {
+              document.removeEventListener("scroll", lazyLoad);
+              window.removeEventListener("resize", lazyLoad);
+              window.removeEventListener("orientationchange", lazyLoad);
+            }
+          }
+        });
+
+        active = false;
+      }, 200);
+    }
+  };
+
+  document.addEventListener("scroll", lazyLoad);
+  window.addEventListener("resize", lazyLoad);
+  window.addEventListener("orientationchange", lazyLoad);
+});
+ (function($){
+  jQuery(document).ready(function($){
+   $('.voice-loop-post .video-f-col, .podcast-post .four-col.fl').sameheight();
+  });
+ })(jQuery);
+
+function setCookie(cname, cvalue, minutes) {
+    var d = new Date();
+    d.setTime(d.getTime() + (minutes*60*1000)); //*24
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+jQuery(document).ready(function () {
+    jQuery('.featured-video-plus > iframe').height(300);
+    jQuery(document).on("click", "button.fa-times", function () {
+    jQuery(".getvideocontent").hide();
+    }); 
+    var CookieePolicyPopUp=getCookie('viewed_cookie_policy');
+    if(CookieePolicyPopUp=='yes'){
+        jQuery("#cookie-law-info-again").hide();
+    } 
+});
+function playVideo(postId) {
+     var videoDivId='#videopartbox_'+postId;
+    jQuery(videoDivId).addClass('activevideo').siblings().removeClass('activevideo');
+    var title = $(videoDivId).find('.videotext .vtitle').text();
+    var date = $(videoDivId).find('.videotext .vdate').text();
+    var pUrl = $(videoDivId).find('.imgthumb').attr('pUrl');
+    var content = '<h3 class="vtitle"><a href="' + pUrl + '">' + title + '</a></h3><span>' + date + '</span>';
+    var url = $(videoDivId).find('.imgthumb').attr('vurl');
+    var vType = $(videoDivId).find('.imgthumb').attr('vType');
+    // if (vType != '0') {
+    // var newImg = '<iframe class="videoscreen" src=' + url + '></iframe><div class="getvideocontent"><div class="video-buttons"><button class="fa fa-times"></button></div><div class="getvideocontent-box">' + content + '</div></div>';
+    // } else {
+    // var newImg = '<video class="videoscreen" src=' + url + '></video><div class="getvideocontent"><div class="video-buttons"></button><button class="fa fa-times"></button></div><div class="getvideocontent-box">' + content + '</div></div>';
+    // }
+    if (vType != '0') {
+    var newImg = '<iframe class="videoscreen" src=' + url + '></iframe>';
+    } else {
+    var newImg = '<video class="videoscreen" src=' + url + '></video>';
+    }
+    jQuery('.videotext').html();
+    jQuery('#ladiv').html($(newImg).animate({width: '100%'}, 0));
+} 
+
+// jQuery(document).ready(function () {
+//    jQuery('.menu-link').bigSlide();
+// });
+
+
+
+// jQuery(function () {
+//     jQuery("#user-login-top").on("click", function (e) {
+//         jQuery("#menu, #pushbody").toggleClass("wide");
+//         e.stopPropagation()
+//     });
+//     jQuery(document).on("click", function (e) {
+//         if (jQuery(e.target).is("#menu, #pushbody") === false) {
+//             jQuery("#menu, #pushbody").removeClass("wide");
+//         }
+//     });
+// });
+
+ //function resize(){
+        //var heights = window.innerHeight;
+        //document.getElementById("leftsidemenu1").style.height = heights + "px";
+//}
+//resize();
+//window.onresize = function () {
+   // resize();
+//};
+
+// jQuery(document).ready(function () {
+//     jQuery(".dropdown li.parent").hover(function () {
+//         jQuery("#menu").toggleClass("subnavG");
+//     });
+// });
+
+
+
+
+ function openCity(evt, cityName) {
+    var i, navtabcontent, navtablinks;
+    navtabcontent = document.getElementsByClassName("navtabcontent");
+    for (i = 0; i < navtabcontent.length; i++) {
+        navtabcontent[i].style.display = "none";
+    }
+    navtablinks = document.getElementsByClassName("navtablinks");
+    for (i = 0; i < navtablinks.length; i++) {
+        navtablinks[i].className = navtablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+jQuery(document).ready(function () {
+     var checkPopUpCookiee=getCookie('yellowbanner');
+     if(checkPopUpCookiee=="1"){
+         jQuery("#footerpopup").remove();
+     }
+    jQuery("#banner__close").click(function () {
+        setCookie('yellowbanner','1','60');
+        jQuery("#footerpopup").remove(); 
+    });
+
+});
+
+jQuery(document).scroll(function () {
+    var checkPopUpCookiee=getCookie('yellowbanner');
+    //alert(checkPopUpCookiee);
+    if(checkPopUpCookiee==''){
+        var y = jQuery(this).scrollTop();
+        if (y > 500) {
+            jQuery('#footerpopup').show();
+        }else {
+            jQuery('#footerpopup').hide();
+        }
+    }
+});
+
+// Can also be used with $(document).ready()
+// jQuery(window).load(function () {
+//     jQuery('.flexslider').flexslider({
+//         animation: "slide"
+//     });
+// });
+
+$(document).ready(function () {
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            loop: false,
+            nav: true,
+            margin: 5,
+            responsive: {
+                0: {
+                    items: 1
+
+                },
+                600: {
+                    items: 2
+
+                },
+                960: {
+                    items: 3
+
+                },
+                1200: {
+                    items: 4
+
+                }
+
+            }
+
+        });
+ 
+    });
+
+ 
+
+
